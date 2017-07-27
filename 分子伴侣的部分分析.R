@@ -1,0 +1,12 @@
+c<-read.table("chaperone.txt",sep = "\t",header = T)
+c$Group<-c(rep("East",5),rep("West",6))
+library(ggplot2)
+ggplot(c,aes(x=chaperone,y=temperature))+geom_point(alpha=.5)+
+  scale_size_area(2)+stat_smooth(method = lm)
+m<-lm(chaperone ~ temperature,c)
+summary(m)
+library(plyr)
+pred<-predictvals(m,"chperone","temperature")
+v<-lm( temperature~ chaperone,c)
+summary(v)
+shapiro.test(c$chaperone)

@@ -1,0 +1,52 @@
+#将物种和功能结合的柱状图
+a1<-read.table("26I_S8B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_8"),dim(a1)[1])
+b1<-cbind(a1,Sample)
+a2<-read.table("26I_S10B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_10"),dim(a2)[1])
+b2<-cbind(a2,Sample)
+a3<-read.table("26I_S12B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_12"),dim(a3)[1])
+b3<-cbind(a3,Sample)
+a4<-read.table("26I_S14B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_14"),dim(a4)[1])
+b4<-cbind(a4,Sample)
+a5<-read.table("26I_S16B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_16"),dim(a5)[1])
+b5<-cbind(a5,Sample)
+a6<-read.table("26I_S18B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_18"),dim(a6)[1])
+b6<-cbind(a6,Sample)
+a7<-read.table("26I_S20B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_20"),dim(a7)[1])
+b7<-cbind(a7,Sample)
+a8<-read.table("26I_S22B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_22"),dim(a8)[1])
+b8<-cbind(a8,Sample)
+a9<-read.table("26I_S24B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_24"),dim(a9)[1])
+b9<-cbind(a9,Sample)
+a10<-read.table("26I_S26B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_26"),dim(a10)[1])
+b10<-cbind(a10,Sample)
+a11<-read.table("26I_S28B.txt.sp",header = F, sep = "\t")
+Sample<-rep(c("Sample_28"),dim(a11)[1])
+b11<-cbind(a11,Sample)
+all<-rbind(b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11)
+colnames(all)<-c("Species","Abundance","Samples")
+write.table(all,"TonB_samples.txt",sep="\t")
+png("TonB.png",width = 600,height = 450)
+ggplot(all, aes(x=factor(Species), y=Abundance))+
+  geom_boxplot()+ylab("Abundance")+xlab("TonB transport")+
+  theme(axis.text.x = element_text(angle = 60,hjust = 0.8,vjust = 0.8,size=12,lineheight = 9,face = "bold.italic"))
+dev.off()
+all1<-subset(all,all$Species!="Viruses")
+ggplot(all1,aes(x=Abundance,y=Samples))+
+  geom_point(size=2,colour="blue")+
+  theme_bw()+theme(panel.grid.major.y = element_blank())+
+  geom_segment(aes(yend=Samples),xend=0,colour="grey50")+
+  theme_bw()+theme(panel.grid.major.y = element_blank())+
+  facet_grid(Species ~ .,scales="free_y",space="free_y")
+ggplot(all1, aes(x = Samples, y = Abundance))+ geom_bar(position='dodge',stat = "identity")+
+         facet_grid(Species ~ .)
+ton<-read.table("TonB_samples.txt",header = T, sep = "\t")

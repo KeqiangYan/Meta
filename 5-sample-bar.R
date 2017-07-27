@@ -1,0 +1,108 @@
+t<-read.table("26I_S8_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_8.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+t<-read.table("26I_S10_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_10.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S12_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_12.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S14_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_14.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S16_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_16.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S18_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_18.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S20_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_20.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S22_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_22.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S24_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_24.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S26_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_26.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()
+
+t<-read.table("26I_S28_cog.txt.fam.4.cogid.out",header=T,sep = "\t")
+library(ggplot2)
+g<-aggregate(t[,3],list(t[,1]),sum)
+colnames(g)<-c("Code","Abundance")
+new<-merge(t,g,by="Code")
+png("bar_28.png",width = 650,height = 450)
+ggplot(new,aes(x=reorder(Code,-Abundance),y=iBAQ,fill=Taxonomy))+geom_bar(stat="identity")+
+  theme_bw()+theme(axis.text.x = element_text(angle=90,hjust=1))+xlab("COG")+ylab("Abundance")
+dev.off()

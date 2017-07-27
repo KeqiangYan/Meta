@@ -1,0 +1,30 @@
+cog<-read.table("all_sample_ibaq.txt",header=TRUE,sep="\t")
+cog1<-data.frame(cog,row.names = 1)
+
+Sample<-c("S08","S10","S12","S14","S16","S18","S20","S22","S24","S26","S28")
+cog2<-t(cog1)
+mcor<-cor(cog2)
+str(mtcars)
+round(mcor,digits = 2)
+library(corrplot)
+col<-colorRampPalette(c("#BB4444","#EE9988","#FFFFFF","#77AADD","#4477AA"))
+png("sp_cor_hclust.png",width = 800,height = 800)
+corrplot(mcor,method="shade",shade.col = NA, tl.col="black",tl.srt=60,
+         col=col(200),order="hclust")
+dev.off()
+png("sp_cor_fpc.png",width = 800,height = 800)
+corrplot(mcor,method="shade",shade.col = NA, tl.col="black",tl.srt=60,
+         col=col(200),order="FPC")
+dev.off()
+png("sp_cor_aoe.png",width = 800,height = 800)
+corrplot(mcor,method="shade",shade.col = NA, tl.col="black",tl.srt=60,
+         col=col(200),order="AOE")
+dev.off()
+mcor<-cor(cog1)
+round(mcor,digits = 2)
+library(corrplot)
+col<-colorRampPalette(c("#BB4444","#EE9988","#FFFFFF","#77AADD","#4477AA"))
+png("function_cor_fpc.png",width = 700,height = 700)
+corrplot(mcor,method="shade",shade.col = NA, tl.col="black",tl.srt=30,
+         col=col(200),order="AOE")
+dev.off()  

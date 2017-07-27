@@ -1,0 +1,51 @@
+env<-read.csv("t1.csv",header = T)
+Sample<-c("S08","S10","S12","S14","S16","S18","S20","S22","S24","S26","S28")
+env<-data.frame(env,row.names = 1)
+e1<-t(env)
+e11<-as.data.frame(e1,row.names = F)
+e2<-as.data.frame(cbind(Sample,e1))
+row.names(e2)<-e2[,1]
+e2<-e2[,-1]
+e2$Phosphate<-as.numeric(as.character(e2$Phosphate))
+e2$Silicate<-as.numeric(as.character(e2$Silicate))
+e2$Ammonium<-as.numeric(as.character(e2$Ammonium))
+e2$Nitrite<-as.numeric(as.character(e2$Nitrite))
+e2$Nitrate<-as.numeric(as.character(e2$Nitrate))
+e2$Temperature<-as.numeric(as.character(e2$Temperature))
+e2$Salinity<-as.numeric(as.character(e2$Salinity))
+e2$PH<-as.numeric(as.character(e2$PH))
+e2$Chla<-as.numeric(as.character(e2$Chla))
+
+library(dplyr)
+library(MASS)
+#S18 in EAST test
+e2$group<-c(rep(c("East"),6),rep(c("West"),5))
+e4<-dplyr::select(e2,Temperature:Chla,group)
+e5<-dplyr::select(e2,group,Phosphate:Nitrate)
+e5<-e5[-2,]
+wilcox.test(e4$Temperature ~ e4$group)
+wilcox.test(e4$Salinity ~ e4$group)
+wilcox.test(e4$PH ~ e4$group)
+wilcox.test(e4$Chla ~ e4$group)
+wilcox.test(e5$Phosphate ~ e5$group)
+wilcox.test(e5$Silicate ~ e5$group)
+wilcox.test(e5$Ammonium ~ e5$group)
+wilcox.test(e5$Nitrite ~ e5$group)
+wilcox.test(e5$Nitrate ~ e5$group)
+select(e2,Chla)
+#S18 in WEST test
+e2$group<-c(rep(c("East"),5),rep(c("West"),6))
+e4<-dplyr::select(e2,Temperature:Chla,group)
+e5<-dplyr::select(e2,group,Phosphate:Nitrate)
+e5<-e5[-2,]
+wilcox.test(e4$Temperature ~ e4$group)
+wilcox.test(e4$Salinity ~ e4$group)
+wilcox.test(e4$PH ~ e4$group)
+wilcox.test(e4$Chla ~ e4$group)
+wilcox.test(e5$Phosphate ~ e5$group)
+wilcox.test(e5$Silicate ~ e5$group)
+wilcox.test(e5$Ammonium ~ e5$group)
+wilcox.test(e5$Nitrite ~ e5$group)
+wilcox.test(e5$Nitrate ~ e5$group)
+
+

@@ -1,0 +1,13 @@
+tara<-read.table("tara_only_deltam.txt",header=F,sep="\t")
+names(tara)<-c("delta_m")
+library(ggplot2)
+hist(tara$delta_m)
+#ggplot(tara,aes(x=delta_m))+geom_histogram()
+gos<-read.table("gos_only_deltam.txt",header=F,sep="\t")
+names(gos)<-c("delta_m")
+all<-read.table("over_deltam.txt",header=F,sep="\t")
+names(all)<-c("delta_m")
+ggplot(tara,aes(x=delta_m))+geom_histogram(binwidth =0.01,fill="white",colour="black")+xlab("delta_m")+title("TARA")
+ggplot(gos,aes(x=delta_m))+geom_histogram(binwidth =0.01,fill="white",colour="black")+xlab("delta_m")+title("GOS")
+binsize<-diff(range(all$delta_m))/3
+ggplot(all,aes(x=delta_m))+geom_histogram(binwidth =0.01,fill="white",colour="black")+xlab("delta_m")+title("Both")

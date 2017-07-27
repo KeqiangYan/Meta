@@ -1,0 +1,11 @@
+s<-read.table("compare_2_genus.txt",header = T, sep = "\t",row.names = 1)
+s1<-t(s)
+s11<-as.data.frame(s1,row.names = F)
+cor.test(s11$Prochlorococcus,s11$chla,method="pearson")
+cor.test(s11$Synechococcus,s11$chla,method="pearson")
+cor.test(s11$Synechococcaceae,s11$chla,method="pearson")
+cor.test(s11$Prochlorococcus,s11$Synechococcus,method="pearson")
+
+cor.test(s11$Prochlorococcus_GOS,s11$chla,method="pearson")
+cor.test(s11$Synechococcus_GOS,s11$chla,method="pearson")
+cor.test(s11$Prochlorococcus,s11$Prochlorococcus_GOS,method="pearson")
