@@ -1,3 +1,4 @@
+lllllll
 lan<-read.table("lanxijun.txt",header=T,sep="\t")
 lan
 cor.test(lan$Prochlorococcus,lan$urea)
